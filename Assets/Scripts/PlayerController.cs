@@ -61,5 +61,13 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Somethin Collided!!!");
         Debug.Log(hit.gameObject.name);
+
+        if(hit.gameObject.tag == "PickUp")
+        {
+            hit.gameObject.GetComponent<PickUp>().Picked();
+        }
+
     }
+
+    
 }

@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     bool gamePaused = false;
     bool endGame = false;
     bool win = false;
+    public int points = 0;
+
+    public int redKey = 0;
+    public int greenKey = 0;
+    public int goldKey = 0;
+
     void Start()
     {
         if (gameManager == null)
@@ -80,6 +86,40 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void AddPoints(int point)
+    {
+        points += point;
+    }
+
+    public void addTime(int addTime)
+    {
+        timeToEnd += addTime;
+    }
+
+    public void FreezeTime(int freeze)
+    {
+        CancelInvoke("Stopper");
+        InvokeRepeating("Stopper", freeze, 1);
+    }
+
+    public void AddKey(KeyColor color)
+    {
+        if (color == KeyColor.Gold)
+        {
+            goldKey++;
+        }
+        else if (color == KeyColor.Green)
+        {
+            greenKey++;
+        }
+        else if (color == KeyColor.Red)
+        {
+            redKey++;
+        }
+    }
+
+
 }
 
 
