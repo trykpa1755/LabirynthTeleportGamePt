@@ -900,7 +900,7 @@ Transform:
   m_GameObject: {fileID: 523709760}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: -2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1282,6 +1282,14 @@ PrefabInstance:
       propertyPath: receiver
       value: 
       objectReference: {fileID: 1886287377}
+    - target: {fileID: 2213648806768401414, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ac7195b95a7144e8e1be57560c4cc6, type: 2}
+    - target: {fileID: 2213648808464519715, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: eb630e1e3ab9c3641b7d5baeaa847f07, type: 2}
     - target: {fileID: 2213648808478139918, guid: e85becbada19b2d4090fa466343c417b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -77.94
@@ -1326,6 +1334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalB
       objectReference: {fileID: 0}
+    - target: {fileID: 2411080366942792495, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ac7195b95a7144e8e1be57560c4cc6, type: 2}
     - target: {fileID: 2411080366942792495, guid: e85becbada19b2d4090fa466343c417b, type: 3}
       propertyPath: otherPortal
       value: 
@@ -2438,6 +2450,14 @@ PrefabInstance:
       propertyPath: receiver
       value: 
       objectReference: {fileID: 1048930317}
+    - target: {fileID: 2213648806768401414, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 679e74d5ae35e554aa00cd5f7a4b9110, type: 2}
+    - target: {fileID: 2213648808464519715, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 33fe9ab919e8a7a448f1cad81d759b04, type: 2}
     - target: {fileID: 2213648808478139918, guid: e85becbada19b2d4090fa466343c417b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.8
@@ -2482,6 +2502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalA
       objectReference: {fileID: 0}
+    - target: {fileID: 2411080366942792495, guid: e85becbada19b2d4090fa466343c417b, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 679e74d5ae35e554aa00cd5f7a4b9110, type: 2}
     - target: {fileID: 2411080366942792495, guid: e85becbada19b2d4090fa466343c417b, type: 3}
       propertyPath: otherPortal
       value: 
