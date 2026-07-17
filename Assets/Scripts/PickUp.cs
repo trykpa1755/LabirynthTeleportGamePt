@@ -12,7 +12,7 @@ public class PickUp : MonoBehaviour
 
     public void Rotation()
     {
-        transform.Rotate(new Vector3(0, 0, 0.5f));
+        transform.Rotate(new Vector3(0, 0.5f, 0));
     }
 
     // Start is called before the first frame update
