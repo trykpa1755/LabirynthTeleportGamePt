@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    public AudioClip pickClip;
     public virtual void Picked()
     {
         Debug.Log("Podnios³em");
