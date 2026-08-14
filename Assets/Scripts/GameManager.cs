@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,17 @@ public class GameManager : MonoBehaviour
     public AudioClip winClip;
     public AudioClip loseClip;
 
+    public Text timeText;
+    public Text goldKeyText;
+    public Text redKeyText;
+    public Text greenKeyText;
+    public Text crystalText;
+    public Image snowFlake;
+    public GameObject infoPanel;
+    public Text pauseEnd;
+    public Text reloadInfo;
+    public Text useInfo;
+
     void Start()
     {
         if (gameManager == null)
@@ -31,6 +43,14 @@ public class GameManager : MonoBehaviour
         {
             timeToEnd = 100;
         }
+
+        snowFlake.enabled = false;
+        timeText.text = timeToEnd.ToString();
+        infoPanel.SetActive(false);
+        pauseEnd.text = "Pause";
+        reloadInfo.text = "";
+        SetUseInfo("");
+
         audioSource = GetComponent<AudioSource>();
 
         Debug.Log("Time: " + timeToEnd + " s");
@@ -50,6 +70,8 @@ public class GameManager : MonoBehaviour
     void Stopper()
     {
         timeToEnd--;
+        timeText.text = timeToEnd.ToString();
+        snowFlake.enabled = false;
         Debug.Log("Time: " + timeToEnd + " s");
         if (timeToEnd <= 0)
         {
@@ -64,6 +86,7 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         PlayClip(pauseClip);
+        infoPanel.SetActive(true);
         Debug.Log("Pause Game");
         Time.timeScale = 0f;
         gamePaused = true;
@@ -71,6 +94,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         PlayClip(resumeClip);
+        infoPanel.SetActive(false);
         Debug.Log("Resume Game");
         Time.timeScale = 1f;
         gamePaused = false;
@@ -88,6 +112,11 @@ public class GameManager : MonoBehaviour
             PlayClip(loseClip);
             Debug.Log("You Lose!!! Reload?");
         }
+    }
+
+    public void SetUseInfo(string info)
+    {
+        useInfo.text = info;
     }
 
     void PauseCheck()
@@ -108,16 +137,19 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int point)
     {
         points += point;
+        crystalText.text = points.ToString();
     }
 
     public void addTime(int addTime)
     {
         timeToEnd += addTime;
+        timeText.text = timeToEnd.ToString();
     }
 
     public void FreezeTime(int freeze)
     {
         CancelInvoke("Stopper");
+        snowFlake.enabled = true;
         InvokeRepeating("Stopper", freeze, 1);
     }
 
@@ -126,14 +158,17 @@ public class GameManager : MonoBehaviour
         if (color == KeyColor.Gold)
         {
             goldKey++;
+            goldKeyText.text = goldKey.ToString();
         }
         else if (color == KeyColor.Green)
         {
             greenKey++;
+            greenKeyText.text = greenKey.ToString();
         }
         else if (color == KeyColor.Red)
         {
             redKey++;
+            redKeyText.text = redKey.ToString();
         }
     }
 
