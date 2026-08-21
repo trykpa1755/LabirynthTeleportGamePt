@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -44,6 +45,8 @@ public class GameManager : MonoBehaviour
             timeToEnd = 100;
         }
 
+        Time.timeScale = 1f;
+
         snowFlake.enabled = false;
         timeText.text = timeToEnd.ToString();
         infoPanel.SetActive(false);
@@ -66,6 +69,21 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         PauseCheck();
+
+        if(endGame)
+        {
+            if(Input.GetKeyDown(KeyCode.Y))
+            {
+                SceneManager.LoadScene(0);
+            }
+
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                Application.Quit();
+            }
+        }
+
+
     }
     void Stopper()
     {
@@ -102,15 +120,20 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         CancelInvoke("Stopper");
+        infoPanel.SetActive(true);
         if (win)
         {
             PlayClip(winClip);
-            Debug.Log("You Win!!! Reoad?");
+            //Debug.Log("You Win!!! Reoad?");
+            pauseEnd.text = "You Win!!!";
+            reloadInfo.text = "Reload? Y/N";
         }
         else
         {
             PlayClip(loseClip);
-            Debug.Log("You Lose!!! Reload?");
+            //Debug.Log("You Lose!!! Reload?");
+            pauseEnd.text = "You Lose!!!";
+            reloadInfo.text = "Reload? Y/N";
         }
     }
 
@@ -170,6 +193,12 @@ public class GameManager : MonoBehaviour
             redKey++;
             redKeyText.text = redKey.ToString();
         }
+    }
+
+    public void WinGame()
+    {
+        win = true;
+        endGame = true;
     }
 
 

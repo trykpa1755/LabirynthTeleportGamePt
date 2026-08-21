@@ -19,7 +19,8 @@ public class Lock : MonoBehaviour
         if (other.tag == "Player")
         {
             iCanOpen = true;
-            Debug.Log("You Can Use Lock");
+            //Debug.Log("You Can Use Lock");
+            GameManager.gameManager.SetUseInfo("Press E to open lock");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -27,7 +28,8 @@ public class Lock : MonoBehaviour
         if (other.tag == "Player")
         {
             iCanOpen = false;
-            Debug.Log("You Can not Use Lock");
+            //Debug.Log("You Can not Use Lock");
+            GameManager.gameManager.SetUseInfo("");
         }
     }
     private void Update()
@@ -49,18 +51,21 @@ public class Lock : MonoBehaviour
         if (GameManager.gameManager.redKey > 0 && myColor == KeyColor.Red)
         {
             GameManager.gameManager.redKey--;
+            GameManager.gameManager.redKeyText.text = GameManager.gameManager.redKey.ToString();
             locked = true;
             return true;
         }
         else if (GameManager.gameManager.greenKey > 0 && myColor == KeyColor.Green)
         {
             GameManager.gameManager.greenKey--;
+            GameManager.gameManager.greenKeyText.text = GameManager.gameManager.greenKey.ToString();
             locked = true;
             return true;
         }
         else if (GameManager.gameManager.goldKey > 0 && myColor == KeyColor.Gold)
         {
             GameManager.gameManager.goldKey--;
+            GameManager.gameManager.goldKeyText.text = GameManager.gameManager.goldKey.ToString();
             locked = true;
             return true;
         }
